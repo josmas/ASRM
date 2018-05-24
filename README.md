@@ -1,6 +1,6 @@
-# asrm
+# Aware Self-report Module
 
-> Aware Self-report Module
+A front end to create surveys (in ESM/EMA/DRM styles) for the Aware framework.
 
 ## Build Setup
 
@@ -28,3 +28,20 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# Other information
+
+## Work In Progress
+This is a WIP; don't expect much from it for now.
+
+## Contributing
+Coming soon... for now, just get in touch.
+
+## License
+Apache 2 as in License file.
+
+## Contact
+@josmasflores
+
+\
+Jos, May 2018.
