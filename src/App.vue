@@ -28,6 +28,15 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Self-report Module</v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>add_circle</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>view_list</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
       <v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
     </v-toolbar>
     <v-navigation-drawer
@@ -78,8 +87,8 @@
 export default {
   name: 'App',
   data: () => ({
-    drawer: true,
-    drawerRight: true,
+    drawer: false,
+    drawerRight: false,
     right: null,
     left: null
   }),
