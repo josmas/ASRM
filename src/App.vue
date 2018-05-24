@@ -31,7 +31,7 @@
       <v-btn icon>
         <v-icon>add_circle</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon @click.native="snackbar_projects = !snackbar_projects">
         <v-icon>view_list</v-icon>
       </v-btn>
       <v-btn icon>
@@ -39,6 +39,14 @@
       </v-btn>
       <v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
     </v-toolbar>
+    <v-snackbar
+      :top=true
+      v-model="snackbar_projects"
+    >
+      {{ text_projects }}
+      <v-btn flat color="pink" @click.native="snackbar_projects = !snackbar_projects">Close</v-btn>
+    </v-snackbar>
+
     <v-navigation-drawer
       v-model="drawer"
       fixed
@@ -90,7 +98,9 @@ export default {
     drawer: false,
     drawerRight: false,
     right: null,
-    left: null
+    left: null,
+    snackbar_projects: false,
+    text_projects: 'Projects coming soon...'
   }),
   props: {
     source: String
