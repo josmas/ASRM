@@ -2,8 +2,14 @@
   <div class="drag">
   <h1>{{ msg }}</h1>
     <h2>Draggable Components</h2>
-    <draggable v-model="list" class="dragArea" :options="{group:{ name:'people',  pull:'clone', put:false }}">
-      <v-btn v-for="element in list" :key="element.name">{{element.name}}</v-btn>
+    <draggable class="drag-area" element="ul" v-model="list" :options="dragOptions" @start="isDragging=true" @end="isDragging=false">
+      <transition-group type="transition" :name="'flip-list'">
+        <li class="list-group-item" v-for="(element, index) in list" :key="index">
+          <v-btn>
+            {{element.name}}
+          </v-btn>
+        </li>
+      </transition-group>
     </draggable>
   </div>
 </template>
@@ -26,7 +32,35 @@ export default {
         name: 'Jean'
       }, {
         name: 'Edgard'
-      }]
+      }],
+      isDragging: false,
+      delayedDragging: false
+    }
+  },
+  computed: {
+    dragOptions () {
+      return {
+        sort: false,
+        group: {
+          name: 'people',
+          pull: 'clone',
+          put: false
+        },
+        ghostClass: 'sortable-ghost',
+        chosenClass: 'sortable-chosen',
+        dragClass: 'sortable-drag'
+      }
+    }
+  },
+  watch: {
+    isDragging (newValue) {
+      if (newValue) {
+        this.delayedDragging = true
+        return
+      }
+      this.$nextTick(() => {
+        this.delayedDragging = false
+      })
     }
   }
 }
@@ -36,7 +70,8 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-.dragArea {
-  min-height: 10px;
+
+.drag-area {
+  min-height: 20px;
 }
 </style>

@@ -19,6 +19,40 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+ul {
+  list-style-type: none;
+  padding: 60px;
+}
 
+li {
+  margin: 10px 10px;
+}
+
+.list-group-item {
+  cursor: move;
+}
+
+.flip-list-move {
+  transition: transform 0.5s;
+}
+
+.no-move {
+  transition: transform 0s;
+}
+
+.sortable-ghost {
+  opacity: .5;
+  background: #C8EBFB;
+}
+
+.sortable-chosen {
+  opacity: .5;
+  background: #AAAAAF;
+}
+
+.sortable-drag {
+  opacity: .5;
+  background: #C8EBFB;
+}
 </style>

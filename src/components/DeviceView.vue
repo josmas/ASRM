@@ -1,12 +1,12 @@
 <template>
-  <draggable v-model="list2" class="device" :options="{group: 'people'}">
-    <ul>
-      <li v-for="element in list2" :key="element.name">
+  <draggable elemet="span" v-model="list2" :options="dragOptions" :move="onMove">
+    <transition-group name="no" class="device" tag="ul">
+      <li v-for="(element, index) in list2" :key="index">
         <v-btn>
           {{element.name}}
         </v-btn>
       </li>
-    </ul>
+    </transition-group>
   </draggable>
 </template>
 
@@ -23,22 +23,30 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       list2: []
     }
+  },
+  methods: {
+    onMove ({relatedContext, draggedContext}) {
+      const relatedElement = relatedContext.element
+      const draggedElement = draggedContext.element
+      return (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
+    }
+  },
+  computed: {
+    dragOptions () {
+      return {
+        group: { name: 'people' },
+        ghostClass: 'sortable-ghost',
+        chosenClass: 'sortable-chosen',
+        dragClass: 'sortable-drag',
+        disabled: false
+      }
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul {
-  list-style-type: none;
-  padding: 60px;
-}
-li {
-  margin: 10px 10px;
-}
-a {
-  color: #42b983;
-}
 .device {
   background: url('../assets/android_device.png') no-repeat;
   min-width: 400px;
