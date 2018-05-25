@@ -5,6 +5,7 @@
         <v-btn>
           {{element.name}}
         </v-btn>
+        <v-icon @click="element.fixed = !element.fixed" aria-hidden="true">{{element.fixed ? 'lock' : 'lock_open'}}</v-icon>
       </li>
     </transition-group>
   </draggable>

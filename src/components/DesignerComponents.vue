@@ -25,13 +25,17 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       list: [{
-        name: 'John'
+        name: 'John',
+        fixed: false
       }, {
-        name: 'Joao'
+        name: 'Joao',
+        fixed: false
       }, {
-        name: 'Jean'
+        name: 'Jean',
+        fixed: false
       }, {
-        name: 'Edgard'
+        name: 'Edgard',
+        fixed: false
       }],
       isDragging: false,
       delayedDragging: false
