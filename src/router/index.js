@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import DeviceView from '@/components/DeviceView'
+import Designer from '@/components/Designer'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'DeviceView',
-      component: DeviceView
+      name: Designer,
+      component: Designer
     }
   ]
 })
