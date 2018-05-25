@@ -2,17 +2,22 @@
   <div>
     <h1>{{ msg }}</h1>
     <div class="drag">
-      <h2>List 1 Draggable</h2>
-      <draggable v-model="list" class="dragArea" :options="{group:'people'}">
-        <div v-for="element in list" :key="element.name">{{element.name}}</div>
-      </draggable>
-      <h2>List 2 Draggable</h2>
-      <draggable v-model="list2" class="dragArea" :options="{group:'people'}">
-        <div v-for="element in list2" :key="element.name">{{element.name}}</div>
+      <h2>Draggable Components</h2>
+      <draggable v-model="list" class="dragArea" :options="{group:{ name:'people',  pull:'clone', put:false }}">
+        <v-btn v-for="element in list" :key="element.name">{{element.name}}</v-btn>
       </draggable>
     </div>
+    <hr/>
     <div class="device">
-      <img src="../assets/android_device.png">
+      <draggable v-model="list2" :options="{group: 'people'}">
+        <ul>
+          <li v-for="element in list2" :key="element.name">
+            <v-btn>
+              {{element.name}}
+            </v-btn>
+          </li>
+        </ul>
+      </draggable>
     </div>
   </div>
 </template>
@@ -34,25 +39,11 @@ export default {
         name: 'Joao'
       }, {
         name: 'Jean'
+      }, {
+        name: 'Edgard'
       }],
       list2: [{
-        name: 'Juan'
-      }, {
-        name: 'Edgard'
-      }, {
         name: 'Johnson'
-      }]
-    }
-  },
-  methods: {
-    add: function () {
-      this.list.push({
-        name: 'Juan'
-      })
-    },
-    replace: function () {
-      this.list = [{
-        name: 'Edgard'
       }]
     }
   }
@@ -66,13 +57,20 @@ h1, h2 {
 }
 ul {
   list-style-type: none;
-  padding: 0;
+  padding: 60px;
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
+  margin: 10px 10px;
 }
 a {
   color: #42b983;
+}
+.dragArea {
+  min-height: 10px;
+}
+.device {
+  background: url('../assets/android_device.png') no-repeat;
+  min-width: 400px;
+  min-height: 750px;
 }
 </style>
