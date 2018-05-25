@@ -5,9 +5,10 @@
     <draggable class="drag-area" element="ul" v-model="list" :options="dragOptions" @start="isDragging=true" @end="isDragging=false">
       <transition-group type="transition" :name="'flip-list'">
         <li class="list-group-item" v-for="(element, index) in list" :key="index">
-          <v-btn>
-            {{element.name}}
-          </v-btn>
+          <p class="text-xs-left">
+            <v-icon>{{element.icon}}</v-icon>
+              {{element.name}}
+          </p>
         </li>
       </transition-group>
     </draggable>
@@ -25,17 +26,21 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       list: [{
-        name: 'John',
-        fixed: false
+        name: 'Text',
+        fixed: false,
+        icon: 'text_fields'
       }, {
-        name: 'Joao',
-        fixed: false
+        name: 'Date Picker',
+        fixed: false,
+        icon: 'date_range'
       }, {
-        name: 'Jean',
-        fixed: false
+        name: 'Time Picker',
+        fixed: false,
+        icon: 'access_time'
       }, {
-        name: 'Edgard',
-        fixed: false
+        name: 'Address',
+        fixed: false,
+        icon: 'add_location'
       }],
       isDragging: false,
       delayedDragging: false
@@ -77,5 +82,15 @@ h1, h2 {
 
 .drag-area {
   min-height: 20px;
+}
+
+ul {
+  border-top: dashed #7f7f7f 1px;
+  border-left: dashed #7f7f7f 1px;
+  border-right: dashed #7f7f7f 1px;
+}
+
+li {
+  border-bottom: dashed #7f7f7f 1px;
 }
 </style>

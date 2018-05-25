@@ -52,5 +52,6 @@ export default {
   background: url('../assets/android_device.png') no-repeat;
   min-width: 400px;
   min-height: 750px;
+  padding-top: 70px;
 }
 </style>

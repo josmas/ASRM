@@ -22,11 +22,11 @@ export default {
 <style>
 ul {
   list-style-type: none;
-  padding: 60px;
 }
 
 li {
-  margin: 10px 10px;
+  padding: 5px;
+  margin: 0px;
 }
 
 .list-group-item {
