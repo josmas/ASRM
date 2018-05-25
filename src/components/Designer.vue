@@ -1,8 +1,14 @@
 <template>
-  <div class="designer-container">
-    <designer-components></designer-components>
-    <device-view></device-view>
-  </div>
+  <v-container fluid grid-list-md>
+    <v-layout row wrap>
+      <v-flex d-flex xs12 sm6 md4>
+        <designer-components color="purple" dark/>
+      </v-flex>
+      <v-flex d-flex xs12 sm6 md3>
+        <device-view/>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

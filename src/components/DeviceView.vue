@@ -1,15 +1,13 @@
 <template>
-  <div class="device">
-    <draggable v-model="list2" :options="{group: 'people'}">
-      <ul>
-        <li v-for="element in list2" :key="element.name">
-          <v-btn>
-            {{element.name}}
-          </v-btn>
-        </li>
-      </ul>
-    </draggable>
-  </div>
+  <draggable v-model="list2" class="device" :options="{group: 'people'}">
+    <ul>
+      <li v-for="element in list2" :key="element.name">
+        <v-btn>
+          {{element.name}}
+        </v-btn>
+      </li>
+    </ul>
+  </draggable>
 </template>
 
 <script>
@@ -23,9 +21,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      list2: [{
-        name: 'Johnson'
-      }]
+      list2: []
     }
   }
 }
